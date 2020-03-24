@@ -13,5 +13,6 @@ public class CustomerController {
 	public String listCustomers(Model model) {
 		
 		return "list-customers";
+		
 	}
 }
