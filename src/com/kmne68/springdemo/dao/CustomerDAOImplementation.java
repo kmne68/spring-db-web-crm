@@ -70,7 +70,7 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//delete the object with the primary key that was passed in
-		Query query = currentSession.createQuery("delete from Customer where id=:customerId");
+		Query query = currentSession.createQuery("DELETE FROM Customer WHERE id=:customerId");
 		query.setParameter("customerId", id);
 		
 		query.executeUpdate();
@@ -89,7 +89,7 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		if(searchName != null && searchName.trim().length() > 0) {
 			
 			// search for firstName or lastName...case insensitive
-			query = currentSession.createQuery("from Customer where lower(first_name) like :name or lower(last_name) like :name", Customer.class);
+			query = currentSession.createQuery("FROM Customer WHERE LOWER(first_name) LIKE :name or LOWER(last_name) LIKE :name", Customer.class);
 			query.setParameter("name", "%" + searchName.toLowerCase() + "%");
 		
 		} else {
